@@ -21,11 +21,13 @@ while finished == False:
     # Show all data
     if question == "1":
         os.system("cls")
+        os.system("clear")
         allData() 
 
     # Show all data (by time)
     elif question == "2": 
         os.system("cls")
+        os.system("clear")
         aTime = str(input("Enter the first time param: "))
         lTime = str(input("Enter the first time param: "))
         getDataByTime(aTime, lTime)
@@ -33,6 +35,7 @@ while finished == False:
     # Show all purchases (by time)
     elif question == "3": 
         os.system("cls")
+        os.system("clear")
         aTime = str(input("Enter the first time param: "))
         lTime = str(input("Enter the first time param: "))
         countPurchases(aTime, lTime)
@@ -40,6 +43,7 @@ while finished == False:
     # Show all customers in store (by time)
     elif question == "4": 
         os.system("cls")
+        os.system("clear")
         aTime = str(input("Enter the first time param: "))
         lTime = str(input("Enter the first time param: "))
         countCustromers(aTime, lTime)
@@ -53,7 +57,6 @@ while finished == False:
     # In case no valid answer has been provided
     else:
         os.system("cls")
+        os.system("clear")
         print("Please select a valid number.")
-
-
 
