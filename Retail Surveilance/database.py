@@ -4,6 +4,8 @@
 
 import mysql.connector
 import numpy as np
+import random
+
 
 db = mysql.connector.connect(
     host = "localhost",
@@ -23,23 +25,20 @@ def read():
 
 # Return all data - Filtered by time
 def readByTime(aTime, lTime):
-    sql = f"SELECT * FROM customers WHERE arrive_time > '{aTime}' AND leave_time < '{lTime}'"
+    sql = f"SELECT * FROM customers WHERE from_time >= '{aTime}' AND to_time <= '{lTime}'"
     my_cursor.execute(sql)
     result = my_cursor.fetchall()
-    return result
-
-# Return all purchases - Filtered by time
-def readNumberOfPurchases(aTime, lTime):
-    sql = f"COUNT(customer_id) FROM customers WHERE arrive_time > '{aTime}' AND leave_time < '{lTime}'"
-    my_cursor.execute(sql)
-    result = my_cursor.fetchall()
-    result = np.array(result)
     return result
 
 # Return all customers - Filtered by time
 def numberOfCustomers(aTime, lTime):
-    sql = f"SELECT * FROM customers WHERE arrive_time > '{aTime}' AND leave_time < '{lTime}'"
+    sql = f"SELECT * FROM customers WHERE from_time >= '{aTime}' AND to_time <= '{lTime}'"
     my_cursor.execute(sql)
     result = my_cursor.fetchall()
     return result
 
+# Insert into db
+def insertTime(aTime, lTime, pBought, pPaid):
+    sql = f"INSERT INTO customers (from_time ,to_time, products_bought, price_paid) VALUES ('{aTime}', '{lTime}', '{pBought}', '{pPaid}')"
+    my_cursor.execute(sql)
+    db.commit()

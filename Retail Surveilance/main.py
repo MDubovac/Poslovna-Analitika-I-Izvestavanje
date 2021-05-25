@@ -7,7 +7,6 @@ from service import *
 from ascii import *
 
 # Welcome Message
-print(welcomeMsg)
 print("All The Actions:")
 
 # Check if the user is finished
@@ -28,28 +27,20 @@ while finished == False:
     elif question == "2": 
         os.system("cls")
         os.system("clear")
-        aTime = str(input("Enter the first time param: "))
-        lTime = str(input("Enter the first time param: "))
+        aTime = str(input("Enter the 1st time param: "))
+        lTime = str(input("Enter the 2nd time param: "))
         getDataByTime(aTime, lTime)
     
-    # Show all purchases (by time)
+    # Show all customers in store (by time)
     elif question == "3": 
         os.system("cls")
         os.system("clear")
-        aTime = str(input("Enter the first time param: "))
-        lTime = str(input("Enter the first time param: "))
-        countPurchases(aTime, lTime)
-
-    # Show all customers in store (by time)
-    elif question == "4": 
-        os.system("cls")
-        os.system("clear")
-        aTime = str(input("Enter the first time param: "))
-        lTime = str(input("Enter the first time param: "))
+        aTime = str(input("Enter the 1st time param: "))
+        lTime = str(input("Enter the 2nd time param: "))
         countCustromers(aTime, lTime)
 
     # Exit the app
-    elif question == "5":
+    elif question == "4":
         print("Bye!")
         finished = True
         exit()

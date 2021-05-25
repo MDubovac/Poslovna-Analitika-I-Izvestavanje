@@ -15,14 +15,14 @@ def allData():
 
     for r in read():
         data.append({
-            "Vreme Dolaska": str(r[1]),
-            "Vreme Odlaska": str(r[2]),
+            "Time window": str(r[1]) + " - " + str(r[2]),
             "Kupljeno Proizvoda": r[3],
             "Zarada": "$" + str(r[4])
         })
 
     df = pd.DataFrame(data)
     print(tabulate(df, headers='keys', tablefmt='psql'))
+
 
 # Implement readByTime()
 def getDataByTime(aTime, lTime):
@@ -31,25 +31,12 @@ def getDataByTime(aTime, lTime):
     for r in readByTime(aTime, lTime):
         data.append({
             "Kupljeno Proizvoda": r[3],
-            "Zarada": r[4]
+            "Zarada": "$" + str(r[4])
         })
 
     df = pd.DataFrame(data)
     print(tabulate(df, headers='keys', tablefmt='psql'))
 
-
-# Implement readNumberOfPurchases()
-def countPurchases(aTime, lTime):
-    data = [] 
-    for r in readNumberOfPurchases(aTime, lTime):
-        data.append({
-            "Kupljeno Proizvoda": r[3],
-            "Vreme Placanja": str(r[2])
-        })
-
-    df = pd.DataFrame(data)
-
-    print(tabulate(df, headers='keys', tablefmt='psql'))
 
 # Implement countCustromers()
 def countCustromers(aTime, lTime):
